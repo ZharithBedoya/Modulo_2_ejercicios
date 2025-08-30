@@ -2,5 +2,17 @@
 Conceptos aplicados: Operador ternario, operador módulo (%), if.
 '''
 
-num=(int(input("Ingrese un numero\n")))
-print("El numero ingresado es par" if num % 2 == 0 else "El numero ingresado es impar")
+
+def main():
+    entrada = (input("Ingrese un numero\n")).strip()
+    if not entrada:
+        print("No debe ingresar vacios")
+        return
+
+
+    num = int(entrada)
+    print("El numero ingresado es par" if num % 2 == 0
+             else "El numero ingresado es impar")
+
+if __name__ == '__main__':
+    main()

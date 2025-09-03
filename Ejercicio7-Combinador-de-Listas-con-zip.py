@@ -7,32 +7,34 @@ Conceptos aplicados: Funciones, zip(), dict(), bucle for sobre diccionarios.
 '''
 
 
-nom_estu = []
-nota_estudiante = []
+def main():
+    nom_estu = []
+    nota_estudiante = []
+    print("🗒️==Notas de Estudiantes==🗒️")
+    cant_st = input("Digite la cantidad de estudiantes que desea ingresar: ")
 
-print("🗒️==Notas de Estudiantes==🗒️")
+    if not cant_st.isdigit():
+        print("Cantidad debe ser un número")
+        exit()  # Finaliza el programa aquí
+    else:
+        cant = int(cant_st)
 
-cant_st = input("Digite la cantidad de estudiantes que desea ingresar: ")
+    for i in range(cant):  # en un rango definido por el que ingrese el usuario cant
+        nombre = input(f"Ingrese el nombre de estudiante {i + 1}: ")
+        while not nombre.isalpha():  # mientras que lka cant no sea numerica
+            print("Nombre solo debe contenter letras")
+            nombre = input("Ingrese nuevamente el nombre del estudiante: ")
+        nota = input(f"Ingrese la nota del estudiante {nombre}: ")
+        while not nota.isdigit():  # mientras que la nota no sea numerica
+            print("La nota debe ser numeros")
+            nota = input(f"Ingrese nuevamente la nota del estudiante {nombre}: ")
 
-if not cant_st.isdigit():
-    print("Cantidad debe ser un número")
-    exit()  # Finaliza el programa aquí
-else:
-    cant = int(cant_st)
+        nom_estu.append(nombre)  # agregar a num_estu el nombre
+        nota_estudiante.append(nota)  # agregar a nota_estudiante la nota
+        estudiante = dict(zip(nom_estu, nota_estudiante))  # unir las dos listas en un diccionario
 
-for i in range(cant):  # en un rango definido por el que ingrese el usuario cant
-    nombre = input(f"Ingrese el nombre de estudiante {i + 1}: ")
-    while not nombre.isalpha(): #mientras que lka cant no sea numerica
-        print("Nombre solo debe contenter letras")
-        nombre=input("Ingrese nuevamente el nombre del estudiante: ")
-    nota = input(f"Ingrese la nota del estudiante {nombre}: ")
-    while not nota.isdigit(): #mientras que la nota no sea numerica
-        print("La nota debe ser numeros")
-        nota = input(f"Ingrese nuevamente la nota del estudiante {nombre}: ")
+        for estudiante, nota in estudiante.items():  # recorre las claves y los valores al mismo tiempo
+            print(f"El estudiante {estudiante} tiene una nota de {nota}")
 
-    nom_estu.append(nombre)  # agregar a num_estu el nombre
-    nota_estudiante.append(nota)  # agregar a nota_estudiante la nota
-    estudiante = dict(zip(nom_estu, nota_estudiante))  # unir las dos listas en un diccionario
-
-    for estudiante, nota in estudiante.items():  # recorre las claves y los valores al mismo tiempo
-       print(f"El estudiante {estudiante} tiene una nota de {nota}")
+if __name__ == '__main__':
+    main()

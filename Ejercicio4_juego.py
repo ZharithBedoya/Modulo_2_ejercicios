@@ -48,15 +48,15 @@ def main():
 
 
     print("==Bienvenido al juego de piedra, papel o tijera===✊✋✌️")
-opciones = ["piedra", "papel", "tijera"]
-victorias_jugador = 0
-victorias_computadora = 0
-while victorias_jugador < 3 and victorias_computadora < 3:  # mientras vistorias jugador y victorias computadora sean menor a 3
-    juego = input("Elige piedra, papel o tijera: \n ").lower().strip()
+    opciones = ["piedra", "papel", "tijera"]
+    victorias_jugador = 0
+    victorias_computadora = 0
+    while victorias_jugador < 3 and victorias_computadora < 3:  # mientras vistorias jugador y victorias computadora sean menor a 3
+        juego = input("Elige piedra, papel o tijera: \n ").lower().strip()
 
-    if juego not in opciones:  # si en la variable juegos  no hay ninguna palabra de la lista opciones
-        print("Opción inválida, intenta de nuevo.")
-        continue
+        if juego not in opciones:  # si en la variable juegos  no hay ninguna palabra de la lista opciones
+            print("Opción inválida, intenta de nuevo.")
+            continue
 
     compu = random.choice(opciones)  # elige al azar una de las opciones de la lista opciones
     print(f"La computadora eligió: {compu}")
@@ -74,9 +74,9 @@ while victorias_jugador < 3 and victorias_computadora < 3:  # mientras vistorias
 
     print(f"Puntuación -> \nJugador: {victorias_jugador}\n| Computadora: {victorias_computadora}\n")
 
-if victorias_jugador == 3:
-    print("¡Felicidades! Ganaste el juego.")
-else:
-    print("La computadora ganó el juego. Mejor suerte la próxima vez.")
+    if victorias_jugador == 3:
+        print("¡Felicidades! Ganaste el juego.")
+    else:
+        print("La computadora ganó el juego. Mejor suerte la próxima vez.")
 if __name__ == "__main__":
     main()

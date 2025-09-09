@@ -8,51 +8,68 @@ Reglas (menores de 12 años): $10.000.
 El programa debe pedir la edad y si es estudiante ('si' o 'no').'''
 
 def validar_edad(edad):
-    '''Esta funcion se encarga de validad
-     la edad del usuario
+    '''Esta función se encarga de validar
+    la edad del usuario
 
-     Parametros:
-     edad(int): edad del usuario
-     Return
-     retorna la variable precio '''
+    Parámetros:
+    edad (int): edad del usuario
 
+    Return:
+    retorna la variable precio o mensaje de error
+    '''
     if edad <= 0 or edad > 80:
-        return "Edad invalida"
+        return "Edad inválida"
     elif edad < 12:
         precio = 10000
     elif 12 <= edad <= 17:
         precio = 15000
     else:
         precio = 20000
-    return precio  #retornar precio
+    return precio
+
 
 def validar_estudiante(precio, estudiante):
-    '''Esta funcion se encarga de validar
-    si el usuario es estudiante
+    '''Esta función valida si el usuario es estudiante.
 
-    Parametros:
-    precio(double): precio de la entrada al cine
-    estudiante(string): el usuario es estudiante
+    Parámetros:
+    precio (float): precio de la entrada
+    estudiante (str): si el usuario es estudiante
 
-    Return
-    retorna la variable precio '''
-
-
+    Retorna:
+    Mensaje con el precio final
+    '''
     if estudiante == 'si':
-        precio *=  0.90
-        return(f"El costo de su factura con descuento del 10% es de {precio}")
+        precio *= 0.90
+        return f"El costo de su factura con descuento del 10% es de {precio}"
     elif estudiante == 'no':
-        return(f"El costo de su entrada es {precio}")
+        return f"El costo de su entrada es {precio}"
     else:
-        return("Entrada para estudiante inválida. Por favor, digite 'Si' o 'No'.")
+        return "Entrada para estudiante inválida. Por favor, digite 'si' o 'no'."
 
 
 def main():
     print("=== 😎 Costos De Entrada a Cine 😎 ===")
-    edad = int(input("Ingrese la edad del Usuario \n"))
-    precio = validar_edad(edad) #el valor de la funcion se guarda en la variable precio
-    estudiante = input("¿El usuario es estudiante? Digite Si o No \n").strip().lower()
-    validar_estudiante(precio, estudiante)
+
+    # Validar edad
+    entrada_edad = input("Ingrese la edad del usuario: ").strip()
+    if entrada_edad == "":
+        print("❌ La edad no puede estar vacía.")
+        return  # termina el programa
+    if not entrada_edad.isdigit():
+        print("❌ La edad debe ser un número válido.")
+        return
+    edad = int(entrada_edad)
+    precio = validar_edad(edad)
+
+
+    # Validar si es estudiante
+    estudiante = input("¿El usuario es estudiante? (Digite 'si' o 'no'): ").strip().lower()
+    if estudiante == " ":
+        print("Entrada para estudiante inválida. Por favor, digite 'si' o 'no'.")
+        return
+
+    resultado = validar_estudiante(precio, estudiante)
+    print("✅", resultado)
 
 
 if __name__ == "__main__":

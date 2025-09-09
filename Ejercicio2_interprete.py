@@ -35,7 +35,6 @@ Si el comando no se digita correctamente, debe mostrar un mensaje de error.'''
                 break
             case _:
                 print("Comando invalido🙄")
-                print("DIGITA UN COMANDO VALIDO!😒")
 
 def main():
     comandos() #ejecutar la funcion comandos

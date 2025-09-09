@@ -1,6 +1,7 @@
 '''Ejercicio 1: Sistema de Precios de Entradas de Cine
-Crea un programa que calcule el precio de una entrada de cine basándose en la edad del cliente y si es estudiante:
-Reglas:}s (menores de 12 años): $10.000.
+Crea un programa que calcule el precio de una entrada de cine basándose en la edad del
+cliente y si es estudiante:
+Reglas (menores de 12 años): $10.000.
 •	Jóvenes (12 a 17 años): $15.000.
 •	Adultos (18 años en adelante): $20.000.
 •	Si el cliente es estudiante (independientemente de la edad), tiene un 10% de descuento.
@@ -16,13 +17,13 @@ def validar_edad(edad):
      retorna la variable precio '''
 
     if edad <= 0 or edad > 80:
-        exit("Edad inválida")
+        return "Edad invalida"
     elif edad < 12:
-        precio = 10.000
+        precio = 10000
     elif 12 <= edad <= 17:
-        precio = 15.000
+        precio = 15000
     else:
-        precio = 20.000
+        precio = 20000
     return precio  #retornar precio
 
 def validar_estudiante(precio, estudiante):
@@ -39,11 +40,11 @@ def validar_estudiante(precio, estudiante):
 
     if estudiante == 'si':
         precio *=  0.90
-        print(f"El costo de su factura con descuento del 10% es de {precio:.3f}")
+        return(f"El costo de su factura con descuento del 10% es de {precio}")
     elif estudiante == 'no':
-        print(f"El costo de su entrada es {precio:.3f}")
+        return(f"El costo de su entrada es {precio}")
     else:
-        print("Entrada para estudiante inválida. Por favor, digite 'Si' o 'No'.")
+        return("Entrada para estudiante inválida. Por favor, digite 'Si' o 'No'.")
 
 
 def main():

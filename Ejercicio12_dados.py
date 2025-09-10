@@ -6,21 +6,14 @@ Conceptos aplicados: random.randint(), bucles, diccionarios como contadores, mé
 '''
 
 import random
-
-def main():
-    lanzamientos = 10000
+def main(lanzamientos=10000):
     frecuencias = {}
-
-    for _ in range(lanzamientos): #se repite 10.000 veces
+    for _ in range(lanzamientos):
         dado1 = random.randint(1, 6)
         dado2 = random.randint(1, 6)
-        suma = dado1 + dado2 #suma los lanzamientos de los datos
-
-        # Contar la frecuencia usando get() para inicializar en 0 si no existe
+        suma = dado1 + dado2
         frecuencias[suma] = frecuencias.get(suma, 0) + 1
 
-    print("Frecuencia de la suma de dos dados tras 10,000 lanzamientos:")
+    print("Frecuencia de la suma de dos dados tras {} lanzamientos:".format(lanzamientos))
     for suma in range(2, 13):
         print(f"Suma {suma}: {frecuencias.get(suma, 0)} veces")
-if __name__ == "__main__":
-    main()
